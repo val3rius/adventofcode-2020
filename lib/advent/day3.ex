@@ -32,6 +32,7 @@ defmodule Advent.Day3 do
     end) |> Access.get(:trees)
   end
 
+
   def has_tree(row, pos) do
     case row do
       nil -> false
