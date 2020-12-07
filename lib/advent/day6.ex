@@ -1,7 +1,7 @@
 defmodule Advent.Day6 do
 
-  def part1(input) do
-    (for g <- Advent.read_input_no_split(input) |> String.split("\n\n") do
+  def part1() do
+    (for g <- Advent.day(6) |> String.split("\n\n") do
       String.replace(g, "\n", "")
       |> String.graphemes()
       |> Enum.sort()
@@ -11,8 +11,8 @@ defmodule Advent.Day6 do
     |> Enum.sum
  end
 
-  def part2(input) do
-    (for g <- Advent.read_input_no_split(input) |> String.split("\n\n") do
+  def part2() do
+    (for g <- Advent.day(6) |> String.split("\n\n") do
        String.replace(g, "\n", "")
         |> String.graphemes()
         |> Enum.reduce(%{}, fn x,acc -> Map.update(acc, x, 1, &(&1+1)) end)

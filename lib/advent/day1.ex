@@ -1,7 +1,8 @@
 defmodule Advent.Day1 do
 
-  def part1(input) do
-    ints = Advent.read_input(input)
+  def part1() do
+    ints = Advent.day(1)
+      |> String.split("\n")
       |> Enum.map(&Integer.parse/1)
       |> Enum.map(fn {val, res} -> val end)
 
@@ -12,8 +13,9 @@ defmodule Advent.Day1 do
 
   end
 
-  def part2(input) do
-    ints = Advent.read_input(input)
+  def part2() do
+    ints = Advent.day(1)
+           |> String.split("\n")
            |> Enum.map(&Integer.parse/1)
            |> Enum.map(fn {val, res} -> val end)
 

@@ -3,17 +3,8 @@ defmodule Advent do
   Glad advent
   """
 
-  def read_input(path) do
-    expanded = Path.expand(path)
-    case File.read(expanded) do
-      {:ok, body} -> String.split(body, "\n")
-      {:error, reason} -> {:error, reason}
-    end
-  end
-
-  def read_input_no_split(path) do
-    expanded = Path.expand(path)
-    case File.read(expanded) do
+  def day(day) do
+    case File.read(Path.join(:code.priv_dir(:advent), "#{day}.txt")) do
       {:ok, body} -> body
       {:error, reason} -> {:error, reason}
     end

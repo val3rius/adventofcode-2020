@@ -1,14 +1,14 @@
 defmodule Advent.Day7 do
 
-  def part1(input) do
-    tree = tree(input)
+  def part1() do
+    tree = Advent.day(7) |> String.split("\n") |> tree()
     (for {p,_} <- tree, has_path(tree, p, "shiny gold"), do: p) |> length
   end
 
-  def part2(input), do: tree(input) |> count_bags("shiny gold")
+  def part2(), do: Advent.day(7) |> String.split("\n") |> tree() |> count_bags("shiny gold")
 
-  defp tree(input) do
-    for row <- Advent.read_input(input), reduce: %{} do
+  defp tree(data) do
+    for row <- data, reduce: %{} do
       acc ->
         [parent | [children | _] ] = String.split(row, " bags contain")
         acc = Map.put(acc, parent, [])

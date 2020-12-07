@@ -1,7 +1,8 @@
 defmodule Advent.Day2 do
 
-  def part1(input) do
-    Advent.read_input(input)
+  def part1() do
+    Advent.day(2)
+      |> String.split("\n")
       |> Enum.map(fn line -> Regex.named_captures(~r/(?<min>[0-9]+)-(?<max>[0-9]+)\ (?<letter>[a-z]{1})\:\ (?<pw>[a-z]*).*/, line) end)
       |> Enum.filter(fn map ->
         {intMin, _} = Integer.parse(map["min"])
@@ -11,8 +12,9 @@ defmodule Advent.Day2 do
       |> length
   end
 
-  def part2(input) do
-    Advent.read_input(input)
+  def part2() do
+    Advent.day(2)
+      |> String.split("\n")
       |> Enum.map(fn line -> Regex.named_captures(~r/(?<pos1>[0-9]+)-(?<pos2>[0-9]+)\ (?<letter>[a-z]{1})\:\ (?<pw>[a-z]*).*/, line) end)
       |> Enum.filter(fn map ->
         {pos1, _} = Integer.parse(map["pos1"])

@@ -1,10 +1,10 @@
 defmodule Advent.Day3 do
 
-  def part1(input) do
-    Advent.read_input(input) |> solve(3, 1)
+  def part1() do
+    Advent.day(3) |> String.split("\n") |> solve(3, 1)
   end
 
-  def part2(input) do
+  def part2() do
     [
       {1,1},
       {3,1},
@@ -12,7 +12,7 @@ defmodule Advent.Day3 do
       {7,1},
       {1,2}
     ]
-      |> Enum.map(fn x -> solve(Advent.read_input(input), elem(x,0), elem(x,1)) end)
+      |> Enum.map(fn x -> solve((Advent.day(3) |> String.split("\n")), elem(x,0), elem(x,1)) end)
       |> Enum.reduce(1, fn x,acc -> x * acc end)
   end
 

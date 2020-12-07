@@ -1,9 +1,10 @@
 defmodule Advent.Day5 do
 
-  def part1(input), do: (for p <- Advent.read_input(input), do: find_seat(p)) |> Enum.sort() |> Enum.reverse() |> hd
+  def part1(), do: (for p <- (Advent.day(5) |> String.split("\n")) do
+    find_seat(p) end) |> Enum.sort() |> Enum.reverse() |> hd
 
-  def part2(input) do
-    ids = (for p <- Advent.read_input(input), do: find_seat(p)) |> Enum.sort()
+  def part2() do
+    ids = (for p <- (Advent.day(5) |> String.split("\n")), do: find_seat(p)) |> Enum.sort()
     (for row <- 0..127,
         col <- 0..7,
         !(id(row, col) in ids) and (id(row, col)-1 in ids) and (id(row, col)+1 in ids),

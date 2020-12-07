@@ -1,7 +1,7 @@
 defmodule Advent.Day4 do
 
-  def part1(input) do
-    batch = Advent.read_input_no_split(input)
+  def part1() do
+    batch = Advent.day(4)
     passports = String.split(batch, "\n\n")
       |> Enum.map(fn x -> String.replace(x, "\n", " ") end)
       |> Enum.map(fn x -> String.split(x, " ") end)
@@ -9,8 +9,8 @@ defmodule Advent.Day4 do
     (for p <- passports, has_valid_shape?(p), do: p) |> length
   end
 
-  def part2(input) do
-    batch = Advent.read_input_no_split(input)
+  def part2() do
+    batch = Advent.day(4)
     passports = String.split(batch, "\n\n")
                 |> Enum.map(fn x -> String.replace(x, "\n", " ") end)
                 |> Enum.map(fn x -> String.split(x, " ") end)
